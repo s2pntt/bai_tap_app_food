@@ -1,0 +1,1 @@
+Dạ do công việc trên công ty dạo này nhiều quá nên em xin được hoàn thành bài sau ạ. Em cảm ơn anh nhiều^^
