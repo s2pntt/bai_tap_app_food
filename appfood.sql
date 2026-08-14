@@ -260,10 +260,13 @@ FROM `user` u
 INNER JOIN `order` o ON u.user_id = o.user_id
 GROUP BY u.user_id, u.full_name, u.email
 HAVING COUNT(o.food_id) = (
-    SELECT COUNT(*)
+    -- Luu y: COUNT(ten_cot) bo qua gia tri NULL, con COUNT(*) dem ca dong rong.
+    -- Truy van nay khong co JOIN nen dung cach nao cung ra ket qua giong nhau,
+    -- nhung ghi ro ten cot de thanh thoi quen an toan khi sau nay co LEFT JOIN.
+    SELECT COUNT(food_id)
     FROM `order`
     GROUP BY user_id
-    ORDER BY COUNT(*) DESC
+    ORDER BY COUNT(food_id) DESC
     LIMIT 1
 );
 
